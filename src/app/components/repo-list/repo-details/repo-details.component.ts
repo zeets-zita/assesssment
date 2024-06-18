@@ -7,7 +7,7 @@ import {GithubService} from "../../../services/github.service";
   templateUrl: './repo-details.component.html',
   styleUrls: ['./repo-details.component.scss']
 })
-export class RepoDetailsComponent {
+export class RepoDetailsComponent implements OnInit {
   repoDetails: any = null;
   issues: any[] = [];
   owner: string = '';
@@ -46,7 +46,7 @@ export class RepoDetailsComponent {
     this.filterIssues();
   }
 
-  private issueDropdown() {
+  private issueDropdown(): void {
     this.issueStates = [
       { label: 'All', value: 'All' },
       { label: 'Open', value: 'open' },
