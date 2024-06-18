@@ -1,0 +1,46 @@
+::ng-deep {
+  .p-fieldset {
+    min-width: auto;
+    cursor: auto !important;
+  }
+  .p-dropdown {
+    border: 0;
+    border-bottom: 1px solid grey;
+    border-radius: 0;
+  }
+  .p-dropdown .p-dropdown-label {
+    padding: 0 10px;
+  }
+  .p-dropdown:not(.p-disabled).p-focus {
+    box-shadow: none;
+    border-color: #69B578;
+  }
+  .p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+    color: #69B578;
+    background: #ffffff;
+  }
+  .p-dropdown:not(.p-disabled):hover {
+    border-color: #69B578;
+  }
+}
+.padding {
+  padding: 2rem 4rem;
+}
+.details li {
+  word-wrap: break-word;
+  padding-bottom: 15px
+}
+.repo-issues ul {
+  list-style: none;
+  padding-inline-start: 0;
+}
+@media only screen and (max-width: 600px) {
+  .padding {
+    padding: 2rem;
+
+  }
+  .mobile-view {
+    flex-direction: column;
+
+  }
+}

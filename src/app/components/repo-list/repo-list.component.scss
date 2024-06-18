@@ -1,0 +1,83 @@
+::ng-deep {
+  .p-button {
+    background: #0B5563;
+    border: #0B5563;
+    padding: 10px 16px;
+  }
+
+  .list-item .p-fieldset {
+    cursor: pointer;
+
+  }
+  .list-item .p-fieldset:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03), 0 0 2px rgba(0, 0, 0, 0.06), 0 6px 6px rgba(0, 0, 0, 0.12);
+  }
+}
+.search-bar {
+  width: 100%;
+  border: 1px solid #0B5563 ;
+  border-radius: 10px;
+  margin-right: 15px;
+  padding: 10px;
+}
+.search-bar:focus-visible {
+  outline: 1px solid #0B5563 !important;
+}
+.clear-icon {
+  position: absolute;
+  top: 22px;
+  right: 18px;
+}
+.box {
+  border: 1px solid #0B5563 ;
+  border-radius: 10px;
+  padding: 10px;
+  background: #FBFCFF;
+}
+.repo-search li {
+  width: 50%;
+  counter-increment: li
+}
+.repo-search ol {
+  list-style: none;
+  counter-reset: li
+}
+.repo-search li::before {
+  content: counter(li);
+  color: #5E5C6C;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+  font-weight: 600;
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+
+.repo-description {
+  color: darkgrey;
+}
+.truncate-multi-line {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: calc(1.2em * 3);
+}
+
+@media only screen and (max-width: 600px) {
+  .mobile-view-layout {
+    flex-wrap: wrap;
+  }
+  .repo-search li {
+    width: 100%;
+  }
+  .background-color {
+    padding: 0 !important;
+  }
+  .clear-icon {
+    top: 14px;
+    right: 14px;
+  }
+}

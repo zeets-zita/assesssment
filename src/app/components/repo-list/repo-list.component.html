@@ -1,0 +1,58 @@
+<div class="background-color p-8">
+  <div class="grid repo-search">
+    <div class="col-12 flex justify-content-center align-items-center" style="margin-top: 20px">
+      <label class="sm:col-12  md:col-6 relative">
+        <input class="search-bar"
+               (keyup.enter)="search()"
+               [(ngModel)]="query"
+               placeholder="Search repositories"/>
+        <div class="clear-icon" *ngIf="query" (click)="clearInput()">
+          <i class="pi pi-times" style="font-size:1.2em; color:#000; cursor:pointer"></i>
+        </div>
+      </label>
+
+      <p-button (click)="search()" >Search</p-button>
+    </div>
+
+    <div class="col-12 flex justify-content-center " *ngIf="recentRepositories.length && !repositories.length">
+      <div class="sm:col-12 md:col-8 mt-8 box">
+        <h2 class="text-center">Top 10 Recent Repositories</h2>
+        <ol class="flex flex-wrap ">
+          <li *ngFor="let repo of recentRepositories">
+            <a (click)="selectRepository(repo)" style="cursor: pointer;" target="_blank">{{ repo.full_name }}</a>
+          </li>
+        </ol>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="grid m-2">
+    <div class="col-12 flex justify-content-center">
+      <p-progressSpinner *ngIf="this.loading" styleClass="custom-spinner"></p-progressSpinner>
+    </div>
+    <div class="col-12" *ngIf="repositories.length && !this.loading">
+      <h3>{{repositories.length}} Results:</h3>
+      <div class="flex flex-wrap">
+        <div class="sm:col-12 md:col-6" *ngFor="let repo of repositories">
+          <p-fieldset class="list-item" (click)="selectRepository(repo)">
+            <ng-template pTemplate="header">
+              <h3 style="color: #0B5563; font-weight: 600;">
+                {{ repo.name }}
+              </h3>
+            </ng-template>
+            <p class="m-1 repo-description truncate-multi-line">
+              {{ repo.description }}
+            </p>
+            <div class="flex justify-content-between mobile-view-layout">
+              <p>{{ repo.language }}</p>
+              <p>Last Updated: {{ repo.updated_at }}</p>
+            </div>
+
+          </p-fieldset>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

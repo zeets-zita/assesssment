@@ -1,0 +1,68 @@
+<div class="grid details padding">
+  <div class="col-12">
+    <p-fieldset class="list-item">
+      <ng-template pTemplate="header">
+        <h2 style="color: #0B5563; font-weight: 600;">
+          {{ repoDetails?.name }}
+        </h2>
+      </ng-template>
+      <div *ngIf="repoDetails">
+        <p>{{ repoDetails.description }}</p>
+        <a [href]="repoDetails.html_url" target="_blank">View on GitHub</a>
+        <div class="flex justify-content-around mobile-view mt-2">
+          <span class="flex flex-column align-items-center ">
+            <i class="pi pi-user" style="font-size:1.2em; color:#5E5C6C;"></i>
+            <p>
+              <strong>Owner:</strong>
+              {{ repoDetails.owner.login }}
+            </p>
+          </span>
+          <span class="flex flex-column align-items-center">
+            <i class="pi pi-star-fill" style="font-size:1.2em; color:#5E5C6C;"></i>
+            <p>
+              <strong>Stars:</strong>
+              {{ repoDetails.stargazers_count }}
+            </p>
+          </span>
+          <span class="flex flex-column align-items-center">
+            <i class="pi pi-share-alt" style="font-size:1.2em; color:#5E5C6C;"></i>
+            <p>
+              <strong>Forks:</strong>
+              {{ repoDetails.forks_count }}
+            </p>
+          </span>
+          <span class="flex flex-column align-items-center">
+            <i class="pi  pi-exclamation-circle" style="font-size:1.2em; color:#5E5C6C;"></i>
+            <p>
+              <strong>Open Issues:</strong>
+              {{ repoDetails.open_issues_count }}
+            </p>
+          </span>
+        </div>
+      </div>
+
+      <div class="repo-issues" *ngIf="issues.length">
+        <h3>
+          <strong>Issues:</strong>
+        </h3>
+        <div class="state-filter">
+          <label for="issue-state">Filter Issues by State:</label>
+          <p-dropdown id="issue-state"
+                      [options]="issueStates"
+                      [(ngModel)]="issueState"
+                      (onChange)="onStateChange($event.value)"
+                      placeholder="Select State">
+          </p-dropdown>
+        </div>
+        <ul>
+          <li *ngFor="let issue of filteredIssues">
+            <a [href]="issue.html_url" target="_blank">{{ issue.title }}</a>
+            <p>{{ issue.body }}</p>
+          </li>
+        </ul>
+      </div>
+
+    </p-fieldset>
+
+  </div>
+</div>
