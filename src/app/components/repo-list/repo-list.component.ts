@@ -26,7 +26,7 @@ export class RepoListComponent implements OnInit {
 
   }
 
-  search(): void {
+  public search(): void {
     this.loading = true;
     this.saveQueryToLocalStorage();
 
@@ -43,7 +43,7 @@ export class RepoListComponent implements OnInit {
     );
   }
 
-  loadRecentRepositories(): void {
+  public loadRecentRepositories(): void {
     this.githubService.getRecentRepositories().subscribe(
       data => {
         this.recentRepositories = data;
