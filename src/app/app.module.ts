@@ -12,8 +12,6 @@ import { ButtonModule } from "primeng/button";
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { FieldsetModule } from 'primeng/fieldset';
 import { DropdownModule } from "primeng/dropdown";
-import { CardModule } from 'primeng/card';
-
 
 @NgModule({
   declarations: [
@@ -30,8 +28,7 @@ import { CardModule } from 'primeng/card';
     ButtonModule,
     ProgressSpinnerModule,
     FieldsetModule,
-    DropdownModule,
-    CardModule
+    DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]
